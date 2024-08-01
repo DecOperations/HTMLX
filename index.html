@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HTMLX Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <script src="htmlx.js"></script>
+
+    <!-- Define the templates -->
+    <template id="template-1">
+      <div>
+        <h2>Template 1</h2>
+        <p>This is template 1 content.</p>
+      </div>
+    </template>
+
+    <template id="template-2">
+      <div>
+        <h2>Template 2</h2>
+        <p>This is template 2 content.</p>
+      </div>
+    </template>
+
+    <template id="template-3">
+      <div>
+        <h2>Template 3</h2>
+        <p>This is template 3 content.</p>
+      </div>
+    </template>
+
+    <!-- Define the triggers -->
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-1"
+      lmx-template-id="template-1"
+    >
+      Trigger 1
+    </button>
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-2"
+      lmx-template-id="template-2"
+      lmx-condition="true"
+    >
+      Trigger 2
+    </button>
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-3"
+      lmx-template-id="template-3"
+      lmx-condition="false"
+    >
+      Trigger 3
+    </button>
+
+    <!-- Define the targets -->
+    <div id="target-1"></div>
+    <div id="target-2"></div>
+    <div id="target-3"></div>
+
+    <!-- Add dynamic attributes -->
+    <div
+      lmx-dynamic-attribute="data-attribute"
+      lmx-dynamic-attribute-value="value"
+    >
+      Dynamic attribute example
+    </div>
+
+    <!-- Add conditional rendering -->
+    <div lmx-condition="true">Conditional rendering example</div>
+
+    <!-- Add swap content -->
+    <div id="swap-content"></div>
+
+    <script>
+      HTMLX.init();
+    </script>
+  </body>
+</html>

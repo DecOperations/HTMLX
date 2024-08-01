@@ -10,50 +10,48 @@ HTMLX is a JavaScript library that provides a way to dynamically swap the conten
 2. The library should process all elements with the `lmx-trigger` attribute and add event listeners to them.
 3. When an element with the `lmx-trigger` attribute is clicked, the library should call the `handleTrigger` method with the element and the event as arguments.
 4. The `handleTrigger` method should:
-	* Get the `lmx-target` attribute of the element and find the corresponding target element in the DOM.
-	* Get the `lmx-template` attribute of the element and find the corresponding template element in the DOM.
-	* Clone the template content and swap it with the content of the target element using the `swapContent` method.
-	* Process the new content by adding event listeners to any elements with the `lmx-trigger` attribute.
+   - Get the `lmx-target` attribute of the element and find the corresponding target element in the DOM.
+   - Get the `lmx-template-id` attribute of the element and find the corresponding template element in the DOM.
+   - Clone the template content and swap it with the content of the target element using the `swapContent` method.
+   - Process the new content by adding event listeners to any elements with the `lmx-trigger` attribute.
 5. The `swapContent` method should:
-	* Replace the content of the target element with the cloned template content.
-	* Use the `lmx-swap` attribute to determine the swap type (innerHTML, outerHTML, beforebegin, afterend, etc.).
+   - Replace the content of the target element with the cloned template content.
+   - Use the `lmx-swap-type` attribute to determine the swap type (innerHTML, outerHTML, beforebegin, afterend, etc.).
+6. The library should support multiple templates and allow developers to define multiple templates using the `<template>` element.
+7. The library should support conditional rendering and allow developers to specify a condition using the `lmx-condition` attribute that must be met for the template to be rendered.
+8. The library should support dynamic attributes and allow developers to add dynamic attributes to the rendered HTML using the `lmx-dynamic-attribute` and `lmx-dynamic-attribute-value` attributes.
+9. The library should support swap content and allow developers to swap the content of an element using the `swapContent` method.
 
-**Test Cases**
+**API**
 
-1. Initialization:
-	* Verify that the library is initialized when the DOM is ready.
-	* Verify that the library processes all elements with the `lmx-trigger` attribute.
-2. Trigger Click:
-	* Create an element with the `lmx-trigger` attribute and click it.
-	* Verify that the `handleTrigger` method is called with the element and the event as arguments.
-3. Template Swap:
-	* Create an element with the `lmx-trigger` attribute, an `lmx-target` attribute, and an `lmx-template` attribute.
-	* Click the element.
-	* Verify that the content of the target element is swapped with the cloned template content.
-4. Swap Type:
-	* Create an element with the `lmx-trigger` attribute, an `lmx-target` attribute, an `lmx-template` attribute, and an `lmx-swap` attribute with a value of "innerHTML".
-	* Click the element.
-	* Verify that the content of the target element is replaced with the cloned template content using innerHTML.
-5. Event Listeners:
-	* Create an element with the `lmx-trigger` attribute and add an event listener to it.
-	* Click the element.
-	* Verify that the event listener is called.
+- `HTMLX.init()`: Initializes the library and processes all elements with the `lmx-trigger` attribute.
+- `HTMLX.handleTrigger(element, event)`: Handles the trigger event and swaps the content of the target element with the cloned template content.
+- `HTMLX.swapContent(target, content, swapType)`: Swaps the content of the target element with the cloned template content using the specified swap type.
+- `HTMLX.addDynamicAttributes(content)`: Adds dynamic attributes to the rendered HTML.
 
-**Edge Cases**
+**Example**
 
-1. Multiple Triggers:
-	* Create an element with multiple `lmx-trigger` attributes.
-	* Click the element.
-	* Verify that the `handleTrigger` method is called multiple times.
-2. No Template:
-	* Create an element with the `lmx-trigger` attribute and no `lmx-template` attribute.
-	* Click the element.
-	* Verify that no error is thrown.
-3. No Target:
-	* Create an element with the `lmx-trigger` attribute and no `lmx-target` attribute.
-	* Click the element.
-	* Verify that no error is thrown.
+Here is an example of how to use HTMLX:
 
-**Implementation**
+```
+<!-- Define the templates -->
+<template id="template-1">
+  <div>
+    <h2>Template 1</h2>
+    <p>This is template 1 content.</p>
+  </div>
+</template>
 
-The implementation should be written in JavaScript and should use the provided code as a starting point. The implementation should pass all the test cases and edge cases specified above.
+<!-- Define the triggers -->
+<button lmx-trigger="click" lmx-target="#target-1" lmx-template-id="template-1">Trigger 1</button>
+
+<!-- Define the target -->
+<div id="target-1"></div>
+
+<!-- Initialize the library -->
+<script>
+  HTMLX.init();
+</script>
+```
+
+This example defines a template and a trigger that swaps the content of the target element with the cloned template content when clicked.

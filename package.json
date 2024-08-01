@@ -1,0 +1,14 @@
+{
+  "name": "htmlx-demo",
+  "version": "1.0.0",
+  "description": "A demo for HTMLX library",
+  "main": "htmlx.js",
+  "scripts": {
+    "start": "http-server -o index.html"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3"
+  },
+  "author": "",
+  "license": "ISC"
+}

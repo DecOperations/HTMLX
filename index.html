@@ -75,6 +75,57 @@
     <!-- Add swap content -->
     <div id="swap-content"></div>
 
+    <!-- Additional examples -->
+    <template id="template-4">
+      <div>
+        <h2>Template 4</h2>
+        <p>This is template 4 content with dynamic attributes.</p>
+        <div lmx-dynamic-attribute="class" lmx-dynamic-attribute-value="dynamic-class">Dynamic Class Example</div>
+      </div>
+    </template>
+
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-4"
+      lmx-template-id="template-4"
+    >
+      Trigger 4
+    </button>
+    <div id="target-4"></div>
+
+    <template id="template-5">
+      <div>
+        <h2>Template 5</h2>
+        <p>This is template 5 content with different swap types.</p>
+      </div>
+    </template>
+
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-5"
+      lmx-template-id="template-5"
+      lmx-swap-type="outerHTML"
+    >
+      Trigger 5 (outerHTML)
+    </button>
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-5"
+      lmx-template-id="template-5"
+      lmx-swap-type="beforebegin"
+    >
+      Trigger 5 (beforebegin)
+    </button>
+    <button
+      lmx-trigger="click"
+      lmx-target="#target-5"
+      lmx-template-id="template-5"
+      lmx-swap-type="afterend"
+    >
+      Trigger 5 (afterend)
+    </button>
+    <div id="target-5"></div>
+
     <script>
       HTMLX.init();
     </script>
